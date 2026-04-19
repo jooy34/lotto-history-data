@@ -1,0 +1,137 @@
+[
+  {
+    "drawNo": 1,
+    "drawDate": "2002-12-07",
+    "numbers": [
+      10,
+      23,
+      29,
+      33,
+      37,
+      40
+    ],
+    "bonusNumber": 16,
+    "firstWinAmount": 0,
+    "firstPrizeWinnerCount": 0
+  },
+  {
+    "drawNo": 2,
+    "drawDate": "2002-12-14",
+    "numbers": [
+      9,
+      13,
+      21,
+      25,
+      32,
+      42
+    ],
+    "bonusNumber": 2,
+    "firstWinAmount": 2002006800,
+    "firstPrizeWinnerCount": 1
+  },
+  {
+    "drawNo": 3,
+    "drawDate": "2002-12-21",
+    "numbers": [
+      11,
+      16,
+      19,
+      21,
+      27,
+      31
+    ],
+    "bonusNumber": 30,
+    "firstWinAmount": 2000000000,
+    "firstPrizeWinnerCount": 1
+  },
+  {
+    "drawNo": 4,
+    "drawDate": "2002-12-28",
+    "numbers": [
+      14,
+      27,
+      30,
+      31,
+      40,
+      42
+    ],
+    "bonusNumber": 2,
+    "firstWinAmount": 0,
+    "firstPrizeWinnerCount": 0
+  },
+  {
+    "drawNo": 5,
+    "drawDate": "2003-01-04",
+    "numbers": [
+      16,
+      24,
+      29,
+      40,
+      41,
+      42
+    ],
+    "bonusNumber": 3,
+    "firstWinAmount": 0,
+    "firstPrizeWinnerCount": 0
+  },
+  {
+    "drawNo": 6,
+    "drawDate": "2003-01-11",
+    "numbers": [
+      14,
+      15,
+      26,
+      27,
+      40,
+      42
+    ],
+    "bonusNumber": 34,
+    "firstWinAmount": 6574451700,
+    "firstPrizeWinnerCount": 1
+  },
+  {
+    "drawNo": 7,
+    "drawDate": "2003-01-18",
+    "numbers": [
+      2,
+      9,
+      16,
+      25,
+      26,
+      40
+    ],
+    "bonusNumber": 42,
+    "firstWinAmount": 0,
+    "firstPrizeWinnerCount": 0
+  },
+  {
+    "drawNo": 8,
+    "drawDate": "2003-01-25",
+    "numbers": [
+      8,
+      19,
+      25,
+      34,
+      37,
+      39
+    ],
+    "bonusNumber": 9,
+    "firstWinAmount": 0,
+    "firstPrizeWinnerCount": 0
+  },
+  {
+    "drawNo": 9,
+    "drawDate": "2003-02-01",
+    "numbers": [
+      2,
+      4,
+      16,
+      17,
+      36,
+      39
+    ],
+    "bonusNumber": 14,
+    "firstWinAmount": 0,
+    "firstPrizeWinnerCount": 0
+  }
+]
