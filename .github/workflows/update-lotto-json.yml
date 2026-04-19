@@ -3,7 +3,7 @@ name: Update lotto draws JSON
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '15 15 * * 6'
 
 jobs:
   update-json:
