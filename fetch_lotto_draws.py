@@ -23,12 +23,8 @@ class FetchNetworkError(RuntimeError):
 
 
 def _format_date(yyyymmdd: str) -> str:
-    """
-    '20260411' -> '2026-04-11'
-    """
     if len(yyyymmdd) != 8 or not yyyymmdd.isdigit():
         return yyyymmdd
-
     return f"{yyyymmdd[:4]}-{yyyymmdd[4:6]}-{yyyymmdd[6:8]}"
 
 
@@ -70,13 +66,6 @@ def backup_existing_file(output_path: Path) -> None:
 
 
 def fetch_draw_once(draw_no: int) -> tuple[str, dict | None]:
-    """
-    반환값:
-    - ("success", draw_dict)
-    - ("missing", None)        : 진짜 없는 회차로 보이는 경우
-    예외:
-    - FetchNetworkError        : 네트워크/타임아웃/HTML 응답 등 비정상
-    """
     params = {
         "srchStrLtEpsd": draw_no,
         "srchEndLtEpsd": draw_no,
@@ -101,16 +90,13 @@ def fetch_draw_once(draw_no: int) -> tuple[str, dict | None]:
 
     if text.startswith("<!DOCTYPE") or text.startswith("<html") or "<html" in text.lower():
         raise FetchNetworkError(
-            f"{draw_no}회 응답이 JSON이 아니라 HTML입니다. "
-            f"서버 차단/오류 가능성"
+            f"{draw_no}회 응답이 JSON이 아니라 HTML입니다. 서버 차단/오류 가능성"
         )
 
     try:
         payload = response.json()
     except ValueError as exc:
-        raise FetchNetworkError(
-            f"{draw_no}회 응답을 JSON으로 해석하지 못했습니다."
-        ) from exc
+        raise FetchNetworkError(f"{draw_no}회 응답을 JSON으로 해석하지 못했습니다.") from exc
 
     data = payload.get("data", {})
     draw_list = data.get("list", [])
@@ -144,16 +130,11 @@ def fetch_draw_once(draw_no: int) -> tuple[str, dict | None]:
 
 
 def fetch_draw_with_retry(draw_no: int) -> tuple[str, dict | None]:
-    """
-    success / missing 반환
-    네트워크 실패는 재시도 후에도 안 되면 예외 발생
-    """
     last_error: Exception | None = None
 
     for attempt in range(1, MAX_RETRIES_PER_DRAW + 1):
         try:
-            result_type, draw = fetch_draw_once(draw_no)
-            return (result_type, draw)
+            return fetch_draw_once(draw_no)
         except FetchNetworkError as exc:
             last_error = exc
             print(f"[ERROR] {exc} (시도 {attempt}/{MAX_RETRIES_PER_DRAW})")
@@ -166,21 +147,23 @@ def fetch_draw_with_retry(draw_no: int) -> tuple[str, dict | None]:
 
 
 def fetch_incremental_draws(start_draw_no: int) -> list[dict]:
-    """
-    기존 마지막 회차 다음부터 신규 회차만 조회.
-    - success면 추가
-    - missing이 연속 3회 나오면 최신 회차 이후로 보고 종료
-    - network error는 실패로 종료
-    """
     results: list[dict] = []
     consecutive_missing = 0
     draw_no = start_draw_no
+    missing_started = False
 
     while True:
-        result_type, draw = fetch_draw_with_retry(draw_no)
+        try:
+            result_type, draw = fetch_draw_with_retry(draw_no)
+        except FetchNetworkError as exc:
+            if missing_started:
+                print(f"[WARN] 미래 회차 확인 중 네트워크 오류 발생, 여기서 종료: {exc}")
+                break
+            raise
 
         if result_type == "missing":
             consecutive_missing += 1
+            missing_started = True
             print(f"[MISSING] {draw_no}회 데이터 없음")
 
             if consecutive_missing >= MAX_CONSECUTIVE_MISSING:
@@ -204,7 +187,6 @@ def fetch_incremental_draws(start_draw_no: int) -> list[dict]:
 
 def save_json(draws: list[dict], output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
-
     draws = sorted(draws, key=lambda x: x["drawNo"])
 
     output_path.write_text(
