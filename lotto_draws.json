@@ -18043,35 +18043,5 @@
     "bonusNumber": 41,
     "firstWinAmount": 2179738018,
     "firstPrizeWinnerCount": 14
-  },
-  {
-    "drawNo": 1218,
-    "drawDate": "2026-04-04",
-    "numbers": [
-      3,
-      28,
-      31,
-      32,
-      42,
-      45
-    ],
-    "bonusNumber": 25,
-    "firstWinAmount": 1714482042,
-    "firstPrizeWinnerCount": 18
-  },
-  {
-    "drawNo": 1219,
-    "drawDate": "2026-04-11",
-    "numbers": [
-      1,
-      2,
-      15,
-      28,
-      39,
-      45
-    ],
-    "bonusNumber": 31,
-    "firstWinAmount": 2508232844,
-    "firstPrizeWinnerCount": 12
   }
 ]
