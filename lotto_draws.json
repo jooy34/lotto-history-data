@@ -268,5 +268,65 @@
     "bonusNumber": 29,
     "firstWinAmount": 0,
     "firstPrizeWinnerCount": 0
+  },
+  {
+    "drawNo": 19,
+    "drawDate": "2003-04-12",
+    "numbers": [
+      6,
+      30,
+      38,
+      39,
+      40,
+      43
+    ],
+    "bonusNumber": 26,
+    "firstWinAmount": 40722959400,
+    "firstPrizeWinnerCount": 1
+  },
+  {
+    "drawNo": 20,
+    "drawDate": "2003-04-19",
+    "numbers": [
+      10,
+      14,
+      18,
+      20,
+      23,
+      30
+    ],
+    "bonusNumber": 41,
+    "firstWinAmount": 19352212800,
+    "firstPrizeWinnerCount": 1
+  },
+  {
+    "drawNo": 21,
+    "drawDate": "2003-04-26",
+    "numbers": [
+      6,
+      12,
+      17,
+      18,
+      31,
+      32
+    ],
+    "bonusNumber": 21,
+    "firstWinAmount": 797475400,
+    "firstPrizeWinnerCount": 23
+  },
+  {
+    "drawNo": 22,
+    "drawDate": "2003-05-03",
+    "numbers": [
+      4,
+      5,
+      6,
+      8,
+      17,
+      39
+    ],
+    "bonusNumber": 25,
+    "firstWinAmount": 4552194900,
+    "firstPrizeWinnerCount": 4
   }
 ]
