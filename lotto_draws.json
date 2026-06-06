@@ -18178,5 +18178,20 @@
     "bonusNumber": 41,
     "firstWinAmount": 2815230113,
     "firstPrizeWinnerCount": 10
+  },
+  {
+    "drawNo": 1227,
+    "drawDate": "2026-06-06",
+    "numbers": [
+      1,
+      14,
+      16,
+      34,
+      41,
+      44
+    ],
+    "bonusNumber": 13,
+    "firstWinAmount": 2674808455,
+    "firstPrizeWinnerCount": 11
   }
 ]
