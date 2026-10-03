@@ -18433,5 +18433,20 @@
     "bonusNumber": 35,
     "firstWinAmount": 2592525282,
     "firstPrizeWinnerCount": 12
+  },
+  {
+    "drawNo": 1244,
+    "drawDate": "2026-10-03",
+    "numbers": [
+      1,
+      13,
+      18,
+      26,
+      34,
+      38
+    ],
+    "bonusNumber": 25,
+    "firstWinAmount": 1604686625,
+    "firstPrizeWinnerCount": 18
   }
 ]
